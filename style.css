@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Default Light Mode Variables */
 :root {
     /* Light Mode (Default) */
     --bg-gradient-start: #fbc2eb;
     --bg-gradient-end: #a6c1ee;
     --card-bg: rgba(255, 255, 255, 0.4);
     --border-color: rgba(255, 255, 255, 0.6);
-    --text-color: #334155;
+    --text-color: #222b38;
     --heading-color: #0f172a;
     --accent-color: #6366f1;
     --shadow-color: rgba(99, 102, 241, 0.2);
 }
+
+/* Dark Mode Overrides */
 
 html[data-theme='dark'] {
     /* Dark Mode */
@@ -42,18 +46,13 @@ body {
     animation: gradient-animation 15s ease infinite;
     perspective: 1500px;
     transition: background 0.4s ease;
+    color: var(--text-color); /* Apply the theme's text color to the body */
 }
 
 @keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .glass-card {
@@ -85,20 +84,18 @@ body {
 }
 
 .profile-pic {
-    width: 240px;
-    height: 230px;
+    width: 150px; /* Adjusted for better proportion */
+    height: 150px;
     border-radius: 50%;
     border: 4px solid var(--accent-color);
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem; /* Center horizontally */
     box-shadow: 0 0 25px var(--shadow-color);
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
+
 .profile-pic img {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -127,13 +124,12 @@ body {
     color: var(--text-color);
     transition: transform 0.3s, filter 0.3s;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .social-links a:hover {
     transform: translateY(-5px);
     filter: drop-shadow(0 0 8px var(--shadow-color));
+    color: var(--accent-color); /* Highlight on hover */
 }
 
 .social-links img {
@@ -141,7 +137,6 @@ body {
     height: auto;
 }
 
-/* MODIFIED THIS RULE */
 .social-links .fa-envelope, .social-links .fa-phone {
     font-size: 2rem;
 }
@@ -154,14 +149,11 @@ html[data-theme='dark'] .github-logo {
     display: inline-block;
     padding: 0.8rem 2rem;
     background: var(--accent-color);
-    color: var(--heading-color);
+    color: #fff; /* White text looks good on both light/dark accent colors */
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-}
-
-html[data-theme='light'] .download-cv {
-    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .download-cv:hover {
@@ -193,22 +185,14 @@ html[data-theme='light'] .download-cv {
     border-left: 1px solid var(--border-color);
 }
 
-.main-content::-webkit-scrollbar {
-    width: 5px;
-}
-
-.main-content::-webkit-scrollbar-track {
-    background: transparent;
-}
-
+.main-content::-webkit-scrollbar { width: 5px; }
+.main-content::-webkit-scrollbar-track { background: transparent; }
 .main-content::-webkit-scrollbar-thumb {
     background: var(--accent-color);
     border-radius: 10px;
 }
 
-.section {
-    margin-bottom: 2.5rem;
-}
+.section { margin-bottom: 2.5rem; }
 
 .section-title {
     font-size: 1.5rem;
@@ -220,10 +204,10 @@ html[data-theme='light'] .download-cv {
     margin-bottom: 1.5rem;
 }
 
-.about-text,
-.timeline-desc {
+.about-text, .timeline-desc, .project-item p, .achievements-list li {
     font-size: 0.95rem;
     line-height: 1.7;
+    color: var(--text-color); /* Ensure all paragraphs use the theme color */
 }
 
 .timeline {
@@ -245,10 +229,7 @@ html[data-theme='light'] .download-cv {
     position: relative;
     margin-bottom: 1.5rem;
 }
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
+.timeline-item:last-child { margin-bottom: 0; }
 
 .timeline-item::before {
     content: '';
@@ -265,6 +246,7 @@ html[data-theme='light'] .download-cv {
 .timeline-role {
     font-size: 1.1rem;
     font-weight: 600;
+    color: var(--heading-color);
 }
 
 .timeline-company {
@@ -287,30 +269,29 @@ html[data-theme='light'] .download-cv {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--heading-color);
 }
 
 html[data-theme='dark'] .skill-tag {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.skill-tag i {
-    font-size: 1.2rem;
-}
+.skill-tag i { font-size: 1.2rem; }
 
 .projects-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
 .project-item {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.05);
     border-radius: 12px;
     padding: 1.5rem;
-    width: 50%;
     text-align: center;
 }
 html[data-theme='dark'] .project-item {
-    background: rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.05);
 }
 
 .project-item .icon {
@@ -318,40 +299,46 @@ html[data-theme='dark'] .project-item {
     margin-bottom: 1rem;
 }
 
-.project-item .spotify-icon {
-    color: #1DB954;
-}
-
-.project-item .password-icon {
-    color: #FFD700;
-}
+.project-item .spotify-icon { color: #1DB954; }
+.project-item .password-icon { color: #FFD700; }
 
 .project-item h4 {
     font-size: 1.1rem;
-}
-
-.project-item p {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
 }
 
 .achievements-list {
-    list-style: none;
+    list-style-type: '';
+    padding-left: 2rem;
 }
 
 .achievements-list li {
-    position: relative;
-    padding-left: 25px;
+    padding-left: 15px;
     margin-bottom: 0.8rem;
-    font-size: 0.95rem;
 }
 
-.achievements-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .glass-card {
+        flex-direction: column;
+        height: 95vh;
+        max-height: none;
+    }
+    .sidebar, .main-content {
+        width: 100%;
+        border: none;
+    }
+    .sidebar {
+        height: auto;
+        padding-bottom: 1.5rem;
+    }
+    .main-content {
+        padding-top: 1.5rem;
+    }
 }
+
 
 @media (max-width: 768px) {
     body {
@@ -361,17 +348,9 @@ html[data-theme='dark'] .project-item {
         height: auto;
     }
     .glass-card {
-        flex-direction: column;
         height: auto;
-        max-height: none;
-    }
-    .sidebar {
-        width: 100%;
-        border-right: none;
     }
     .main-content {
-        width: 100%;
-        border-left: none;
         padding: 2rem 1.5rem;
     }
     #theme-toggle {
@@ -379,9 +358,6 @@ html[data-theme='dark'] .project-item {
         right: 1rem;
     }
     .projects-container {
-        flex-direction: column;
-    }
-    .project-item {
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 }
