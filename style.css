@@ -46,7 +46,7 @@ body {
     animation: gradient-animation 15s ease infinite;
     perspective: 1500px;
     transition: background 0.4s ease;
-    color: var(--text-color); /* Apply the theme's text color to the body */
+    color: var(--text-color);
 }
 
 @keyframes gradient-animation {
@@ -84,11 +84,11 @@ body {
 }
 
 .profile-pic {
-    width: 200px; /* Adjusted for better proportion */
+    width: 200px;
     height: 190px;
     border-radius: 50%;
     border: 4px solid var(--accent-color);
-    margin: 0 auto 1.5rem; /* Center horizontally */
+    margin: 0 auto 1.5rem;
     box-shadow: 0 0 25px var(--shadow-color);
     overflow: hidden;
 }
@@ -129,7 +129,7 @@ body {
 .social-links a:hover {
     transform: translateY(-5px);
     filter: drop-shadow(0 0 8px var(--shadow-color));
-    color: var(--accent-color); /* Highlight on hover */
+    color: var(--accent-color);
 }
 
 .social-links img {
@@ -149,7 +149,7 @@ html[data-theme='dark'] .github-logo {
     display: inline-block;
     padding: 0.8rem 2rem;
     background: var(--accent-color);
-    color: #fff; /* White text looks good on both light/dark accent colors */
+    color: #ffffff;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
@@ -207,7 +207,7 @@ html[data-theme='dark'] .github-logo {
 .about-text, .timeline-desc, .project-item p, .achievements-list li {
     font-size: 0.95rem;
     line-height: 1.7;
-    color: var(--text-color); /* Ensure all paragraphs use the theme color */
+    color: var(--text-color);
 }
 
 .timeline {
@@ -294,13 +294,23 @@ html[data-theme='dark'] .project-item {
     background: rgba(255,255,255,0.05);
 }
 
+.project-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
 .project-item .icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.project-item .spotify-icon { color: #1DB954; }
-.project-item .password-icon { color: #FFD700; }
+/* Specific color for password generator icon */
+.project-item .password-icon {
+    color: #FFD700; /* Yellow color */
+}
 
 .project-item h4 {
     font-size: 1.1rem;
@@ -309,15 +319,13 @@ html[data-theme='dark'] .project-item {
 }
 
 .achievements-list {
-    list-style-type: '';
+    list-style-type: disc;
     padding-left: 2rem;
 }
 
 .achievements-list li {
-    padding-left: 15px;
     margin-bottom: 0.8rem;
 }
-
 
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
@@ -338,7 +346,6 @@ html[data-theme='dark'] .project-item {
         padding-top: 1.5rem;
     }
 }
-
 
 @media (max-width: 768px) {
     body {
